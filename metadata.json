@@ -1,0 +1,6 @@
+{
+  "name": "Coco-Rafia",
+  "description": "Glacières écologiques et biodégradables à base de fibre de coco et de manioc à Lomé, Togo.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Definitions for gradients and drop shadows -->
+  <defs>
+    <!-- Ecological Green Gradient -->
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D7A43" />
+      <stop offset="100%" stop-color="#1E5C30" />
+    </linearGradient>
+
+    <!-- Coconut Husk Warm Brown Gradient -->
+    <linearGradient id="brownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8D6E63" />
+      <stop offset="100%" stop-color="#5D4037" />
+    </linearGradient>
+
+    <!-- Pure Coconut Fiber Light Beige -->
+    <linearGradient id="fiberGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D7CCC8" />
+      <stop offset="100%" stop-color="#EFEBE9" />
+    </linearGradient>
+
+    <!-- Cool Insulation Ice Blue Gradient -->
+    <linearGradient id="coolBlueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E0F7FA" />
+      <stop offset="100%" stop-color="#80DEEA" />
+    </linearGradient>
+
+    <!-- Deep Charcoal for Minimal accents -->
+    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E342E" />
+      <stop offset="100%" stop-color="#2D1B18" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base (Optional / Clean Transparent default) -->
+  <rect width="100%" height="100%" fill="none" />
+
+  <!-- Main Outer Ring: The Circular Economy Loop -->
+  <path d="M 250,55 A 195,195 0 1,1 249.9,55" 
+        fill="none" 
+        stroke="url(#greenGrad)" 
+        stroke-width="14" 
+        stroke-linecap="round" 
+        stroke-dasharray="8 8" 
+        opacity="0.25" />
+
+  <!-- Dynamic Circular Arrow (representing upcycling / circular economy) -->
+  <path d="M 120,400 A 195,195 0 0,1 110,130" 
+        fill="none" 
+        stroke="url(#greenGrad)" 
+        stroke-width="12" 
+        stroke-linecap="round" />
+  <path d="M 380,100 A 195,195 0 0,1 390,370" 
+        fill="none" 
+        stroke="url(#greenGrad)" 
+        stroke-width="12" 
+        stroke-linecap="round" />
+        
+  <!-- Arrow heads in Green -->
+  <polygon points="110,130 95,150 125,145" fill="#2D7A43" />
+  <polygon points="390,370 405,350 375,355" fill="#2D7A43" />
+
+  <!-- Coconut Shell Outer Arc (Warm organic brown) -->
+  <path d="M 100,250 C 100,340 160,400 250,400 C 340,400 400,340 400,250 C 400,210 380,170 350,140" 
+        fill="url(#brownGrad)" 
+        filter="drop-shadow(0px 8px 16px rgba(93,64,55,0.15))" />
+
+  <!-- Coconut Edible Meat layer (Pure White & Inner Beige) -->
+  <path d="M 115,250 C 115,325 165,380 250,380 C 335,380 385,325 385,250 C 385,215 370,180 345,155" 
+        fill="#FFFFFF" />
+
+  <!-- Bio-Composite Starch-Fibre Mat / Rafia Weave Texture (Central Layer) -->
+  <!-- Represents the porous agricultural waste matrix -->
+  <path d="M 130,250 C 130,312 175,362 250,362 C 325,362 370,312 370,250 C 370,222 355,192 335,172" 
+        fill="url(#coolBlueGrad)" />
+
+  <!-- Rafia Weave Lines (Abstract minimal geometry representing Togo basket craft & fiber density) -->
+  <g stroke="url(#brownGrad)" stroke-width="2" opacity="0.4">
+    <!-- Diagonals \ -->
+    <line x1="170" y1="200" x2="330" y2="360" />
+    <line x1="140" y1="240" x2="260" y2="360" />
+    <line x1="220" y1="170" x2="360" y2="310" />
+    <!-- Diagonals / -->
+    <line x1="330" y1="200" x2="170" y2="360" />
+    <line x1="360" y1="240" x2="240" y2="360" />
+    <line x1="280" y1="170" x2="140" y2="310" />
+    <!-- Radiating fibers -->
+    <line x1="250" y1="250" x2="250" y2="360" stroke-width="3" />
+    <line x1="250" y1="250" x2="135" y2="280" stroke-width="3" />
+    <line x1="250" y1="250" x2="365" y2="280" stroke-width="3" />
+    <line x1="250" y1="250" x2="170" y2="330" stroke-width="3" />
+    <line x1="250" y1="250" x2="330" y2="330" stroke-width="3" />
+  </g>
+
+  <!-- Ice Crystal / Snowflake Motif in Center (evoking fresh preservation and high-tech insulation) -->
+  <g transform="translate(250, 260) scale(1.1)" stroke="#00838F" stroke-width="3.5" stroke-linecap="round" fill="none">
+    <!-- Core Hub -->
+    <circle cx="0" cy="0" r="4" fill="#E0F7FA" stroke="#00838F" stroke-width="2" />
+    
+    <!-- Six Snowflake Arms representing preservation -->
+    <!-- 12 o'clock -->
+    <line x1="0" y1="-5" x2="0" y2="-38" />
+    <line x1="0" y1="-25" x2="-8" y2="-31" />
+    <line x1="0" y1="-25" x2="8" y2="-31" />
+    
+    <!-- 6 o'clock -->
+    <line x1="0" y1="5" x2="0" y2="38" />
+    <line x1="0" y1="25" x2="-8" y2="31" />
+    <line x1="0" y1="25" x2="8" y2="31" />
+    
+    <!-- 2 o'clock -->
+    <line x1="4.3" y1="-2.5" x2="32.9" y2="-19" />
+    <!-- branches for 2 o'clock -->
+    <line x1="21.6" y1="-12.5" x2="23" y2="-21.6" />
+    <line x1="21.6" y1="-12.5" x2="14.3" y2="-16.7" />
+    
+    <!-- 8 o'clock -->
+    <line x1="-4.3" y1="2.5" x2="-32.9" y2="19" />
+    <line x1="-21.6" y1="12.5" x2="-23" y2="21.6" />
+    <line x1="-21.6" y1="12.5" x2="-14.3" y2="16.7" />
+    
+    <!-- 4 o'clock -->
+    <line x1="4.3" y1="2.5" x2="32.9" y2="19" />
+    <!-- branches for 4 o'clock -->
+    <line x1="21.6" y1="12.5" x2="23" y2="21.6" />
+    <line x1="21.6" y1="12.5" x2="14.3" y2="16.7" />
+    
+    <!-- 10 o'clock -->
+    <line x1="-4.3" y1="-2.5" x2="-32.9" y2="-19" />
+    <line x1="-21.6" y1="-12.5" x2="-23" y2="-21.6" />
+    <line x1="-21.6" y1="-12.5" x2="-14.3" y2="-16.7" />
+  </g>
+
+  <!-- Green Coconut Palm Leaves on top-right (Symbol of raw material, renewability and Togo's coast) -->
+  <g transform="translate(320, 100) rotate(15)">
+    <!-- Main leaf spine -->
+    <path d="M -10,65 C 10,25 45,5 85,0" fill="none" stroke="#2D7A43" stroke-width="4.5" stroke-linecap="round" />
+    <!-- Leaf Blade paths (minimalist modern design) -->
+    <path d="M 12,38 C 18,25 32,18 40,16 C 36,25 24,35 12,38 Z" fill="url(#greenGrad)" />
+    <path d="M 32,24 C 42,12 55,8 65,8 C 58,16 45,24 32,24 Z" fill="url(#greenGrad)" />
+    <path d="M 52,14 C 65,4 78,2 85,2 C 78,8 65,14 52,14 Z" fill="#4CAF50" />
+    
+    <!-- Second overlapping smaller leaf -->
+    <path d="M -20,75 C -5,45 25,25 55,25" fill="none" stroke="#1E5C30" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 0,55 C 8,42 18,36 26,34 C 21,43 11,51 0,55 Z" fill="#1E5C30" />
+    <path d="M 15,44 C 25,32 35,28 42,28 C 36,36 25,43 15,44 Z" fill="#2D7A43" />
+  </g>
+
+  <!-- Circular Text / Clean branding around the lower edge (matching the curves) -->
+  <path id="textPath" d="M 105,370 A 185,185 0 0,0 395,370" fill="none" />
+  <text fill="#2D1B18" font-family="'Space Grotesk', 'Inter', sans-serif" font-size="19" font-weight="700" letter-spacing="4">
+    <textPath href="#textPath" startOffset="50%" text-anchor="middle">
+      · LOMÉ - ECOINNOVATION ·
+    </textPath>
+  </text>
+</svg>
