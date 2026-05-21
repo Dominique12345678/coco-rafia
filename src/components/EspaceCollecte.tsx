@@ -133,7 +133,7 @@ Bonjour l'équipe Coco-Rafia ! Nous disposons de déchets de noix de coco prêts
 ${formData.additionalInfo.trim() ? `"${formData.additionalInfo.trim()}"` : 'Aucun commentaire.'}
 ${uploadedFile ? `*Note :* Une photo des coques de coco a été préparée et est prête à vous être envoyée.` : ''}
 
-Merci de planifier le passage gratuit de votre équipe pour upcycler ces matières à Lomé !`;
+Merci de planifier le passage gratuit de votre équipe pour revaloriser ces matières à Lomé !`;
 
     const encodedText = encodeURIComponent(textToSend);
     const whatsappUrl = `https://wa.me/22890000000?text=${encodedText}`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Leaf, HeartHandshake, CheckCircle2, ChevronRight, Recycle, Sparkles, Sprout, Zap, Droplet, Sun, ShoppingBag } from 'lucide-react';
+import { motion } from 'motion/react';
 
 export default function Mission() {
   const steps = [
@@ -92,9 +93,14 @@ export default function Mission() {
             {steps.map((step, idx) => {
               const Icon = step.icon;
               return (
-                <div 
+                <motion.div 
                   key={step.num}
-                  className="relative bg-white p-5 rounded-2xl border border-coco-shell/40 shadow-sm hover:shadow-md transition-all group hover:-translate-y-1 duration-200"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.12, ease: "easeOut" }}
+                  whileHover={{ y: -5, scale: 1.01, transition: { duration: 0.2 } }}
+                  className="relative bg-white p-5 rounded-2xl border border-coco-shell/40 shadow-sm hover:shadow-md transition-all group duration-200"
                 >
                   {/* Connector arrow on desktops */}
                   {idx < steps.length - 1 && (
@@ -105,17 +111,17 @@ export default function Mission() {
                   
                   {/* Number & Icon badge header */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="font-mono text-2xl font-black text-coco-green/20 group-hover:text-coco-green/40 transition-colors">
+                    <span className="font-mono text-2xl font-black text-coco-green/20 group-hover:text-coco-green/45 transition-colors">
                       {step.num}
                     </span>
                     <span className="w-10 h-10 bg-coco-sand rounded-xl flex items-center justify-center border border-coco-shell/20 text-coco-green">
-                      <Icon className="w-5 h-5" />
+                      <Icon className="w-5 h-5 block group-hover:scale-110 transition-transform duration-300" />
                     </span>
                   </div>
 
                   <h4 className="font-display font-bold text-sm text-gray-900 mb-2">{step.title}</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">{step.desc}</p>
-                </div>
+                </motion.div>
               );
             })}
           </div>
@@ -125,7 +131,13 @@ export default function Mission() {
         <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* SDGs explanatory text */}
-          <div className="lg:col-span-5 space-y-5 text-left">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-5 space-y-5 text-left"
+          >
             <div className="inline-flex items-center gap-1 bg-emerald-100 text-coco-green px-2.5 py-1 rounded-lg text-xs font-mono font-bold">
               <Sparkles className="w-4 h-4 animate-spin-slow" />
               <span>Contribution Officielle aux ODD</span>
@@ -158,15 +170,20 @@ export default function Mission() {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
           {/* Grid of ODD / SDG tiles */}
           <div className="lg:col-span-1" />
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {sdgs.map((sdg) => (
-              <div 
+            {sdgs.map((sdg, sIdx) => (
+              <motion.div 
                 key={sdg.id}
-                className="bg-white p-5 rounded-2xl border border-coco-shell/40 shadow-sm flex flex-col justify-between hover:shadow-md transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: sIdx * 0.15 }}
+                whileHover={{ y: -4, scale: 1.02, transition: { duration: 0.2 } }}
+                className="bg-white p-5 rounded-2xl border border-[#ece9e4] shadow-sm flex flex-col justify-between hover:shadow-md transition-all cursor-pointer"
               >
                 {/* SDG Indicator Badge */}
                 <div className="flex items-center gap-3 mb-4">
@@ -180,7 +197,7 @@ export default function Mission() {
                   <h4 className="font-display font-bold text-sm text-gray-900">{sdg.title}</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">{sdg.text}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 

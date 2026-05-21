@@ -238,7 +238,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemoveItem, onClearCart
       
       doc.setFont("helvetica", "italic");
       doc.setFontSize(8.5);
-      doc.text(`Grâce a cet achat upcycle, vous evitez ~${plasticSavedKg.toFixed(1)} kg de dechets de plastique polystyrène fossile.`, 18, yCoord + 11);
+      doc.text(`Grâce a cet achat eco-conçu, vous evitez ~${plasticSavedKg.toFixed(1)} kg de dechets de plastique polystyrène fossile.`, 18, yCoord + 11);
 
       // Thank you footer
       yCoord += 24;
@@ -249,7 +249,7 @@ export default function Cart({ cart, onUpdateQuantity, onRemoveItem, onClearCart
 
       doc.setFont("helvetica", "normal");
       doc.setFontSize(8);
-      doc.text("Produit artisanalement a Lome (Togo) a base de coques de noix de coco locales upcyclees.", 105, yCoord + 4.5, { align: 'center' });
+      doc.text("Produit artisanalement a Lome (Togo) a base de coques de noix de coco locales revalorisees.", 105, yCoord + 4.5, { align: 'center' });
 
       doc.save(`Facture-CocoRafia-${paymentTxRef || orderId}.pdf`);
     } catch (pdfErr) {

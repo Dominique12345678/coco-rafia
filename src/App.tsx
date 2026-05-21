@@ -5,6 +5,7 @@ import {
   ArrowRight, ExternalLink, HelpCircle as HelpIcon, Flame, Globe2, Eye, Trash2,
   Quote
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -22,7 +23,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('impact');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'glaciere' | 'logistique' | 'agri'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'glaciere' | 'logistique' | 'agri' | 'autres'>('all');
   const [selectedProductDetails, setSelectedProductDetails] = useState<Product | null>(null);
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -206,89 +207,121 @@ export default function App() {
                 >
                   Agro-Biochar
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setSelectedCategory('autres')}
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 ${
+                    selectedCategory === 'autres'
+                      ? 'bg-coco-green text-white shadow-sm'
+                      : 'text-gray-600 hover:text-coco-green hover:bg-white'
+                  }`}
+                >
+                  Autres produits
+                </button>
               </div>
             </div>
 
             {/* Product Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {filteredProducts.map((product) => (
-                <article 
-                  key={product.id}
-                  className="bg-coco-sand/35 rounded-2xl border border-coco-shell/60 overflow-hidden flex flex-col justify-between hover:border-coco-brown/40 hover:shadow-lg transition-all text-left"
-                >
-                  {/* Category Indicator Tag */}
-                  <div className="p-4 flex-grow space-y-3">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase font-mono tracking-wider font-extrabold px-2.5 py-1 bg-white rounded-lg border border-coco-shell/30 text-coco-brown">
-                        {product.category === 'glaciere' ? 'Isotherme standard' : product.category === 'logistique' ? 'Professionnel' : 'Ressource Agricole'}
-                      </span>
-                      <span className="text-xs font-mono text-gray-500 font-bold">
-                        {product.capacity}
-                      </span>
-                    </div>
-
-                    {/* Image Graphic - REAL PHOTOREALISTIC IMAGES */}
-                    <div className="bg-white aspect-video rounded-xl border border-coco-shell/30 flex items-center justify-center p-0 relative overflow-hidden group">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      
-                      {/* Technical Performance Badge Overlay */}
-                      <div className="absolute bottom-2 left-2 right-2 bg-black/75 backdrop-blur-sm p-1.5 rounded-lg text-[10px] text-white flex items-center gap-1.5">
-                        <ThermometerSnowflake className="w-3.5 h-3.5 text-coco-ice flex-shrink-0" />
-                        <span className="truncate">{product.thermalPerformance}</span>
+            <motion.div 
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            >
+              <AnimatePresence mode="popLayout">
+                {filteredProducts.map((product) => (
+                  <motion.article 
+                    layout
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.9 }}
+                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    whileHover={{ 
+                      y: -10, 
+                      boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+                      borderColor: "var(--color-coco-brown)"
+                    }}
+                    key={product.id}
+                    className="bg-coco-sand/35 rounded-2xl border border-coco-shell/60 overflow-hidden flex flex-col justify-between transition-colors text-left"
+                  >
+                    {/* Category Indicator Tag */}
+                    <div className="p-4 flex-grow space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[10px] uppercase font-mono tracking-wider font-extrabold px-2.5 py-1 bg-white rounded-lg border border-coco-shell/30 text-coco-brown">
+                          {product.category === 'glaciere' 
+                            ? 'Isotherme standard' 
+                            : product.category === 'logistique' 
+                            ? 'Professionnel' 
+                            : product.category === 'agri' 
+                            ? 'Ressource Agricole' 
+                            : 'Art & Déco'}
+                        </span>
+                        <span className="text-xs font-mono text-gray-500 font-bold">
+                          {product.capacity}
+                        </span>
                       </div>
-                    </div>
 
-                    {/* Titles */}
-                    <div className="space-y-1 pt-1">
-                      <h3 className="font-display font-medium text-lg text-gray-900 leading-tight">
-                        {product.name}
-                      </h3>
-                      <p className="text-xs text-coco-brown italic font-medium leading-tight">
-                        {product.tagline}
+                      {/* Image Graphic - REAL PHOTOREALISTIC IMAGES */}
+                      <div className="bg-white aspect-video rounded-xl border border-coco-shell/30 flex items-center justify-center p-0 relative overflow-hidden group">
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          referrerPolicy="no-referrer"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        
+                        {/* Technical Performance Badge Overlay */}
+                        <div className="absolute bottom-2 left-2 right-2 bg-black/75 backdrop-blur-sm p-1.5 rounded-lg text-[10px] text-white flex items-center gap-1.5">
+                          <ThermometerSnowflake className="w-3.5 h-3.5 text-coco-ice flex-shrink-0" />
+                          <span className="truncate">{product.thermalPerformance}</span>
+                        </div>
+                      </div>
+
+                      {/* Titles */}
+                      <div className="space-y-1 pt-1">
+                        <h3 className="font-display font-medium text-lg text-gray-900 leading-tight">
+                          {product.name}
+                        </h3>
+                        <p className="text-xs text-coco-brown italic font-medium leading-tight">
+                          {product.tagline}
+                        </p>
+                      </div>
+
+                      <p className="text-xs text-gray-600 line-clamp-3 leading-relaxed pt-1">
+                        {product.description}
                       </p>
                     </div>
 
-                    <p className="text-xs text-gray-600 line-clamp-3 leading-relaxed pt-1">
-                      {product.description}
-                    </p>
-                  </div>
+                    {/* Pricing action bottom wrap */}
+                    <div className="p-4 bg-white border-t border-coco-shell/45 flex items-center justify-between">
+                      <div className="flex flex-col">
+                        <span className="text-[9px] font-mono text-gray-400 font-bold uppercase">Tarif Lomé</span>
+                        <span className="font-mono text-base font-black text-coco-green">
+                          {product.price.toLocaleString('fr-FR')} FCFA
+                        </span>
+                      </div>
 
-                  {/* Pricing action bottom wrap */}
-                  <div className="p-4 bg-white border-t border-coco-shell/45 flex items-center justify-between">
-                    <div className="flex flex-col">
-                      <span className="text-[9px] font-mono text-gray-400 font-bold uppercase">Tarif Lomé</span>
-                      <span className="font-mono text-base font-black text-coco-green">
-                        {product.price.toLocaleString('fr-FR')} FCFA
-                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => setSelectedProductDetails(product)}
+                          className="p-2 text-gray-500 hover:text-coco-brown bg-coco-sand px-2.5 py-2.5 rounded-xl border border-coco-shell/30 transition-colors cursor-pointer"
+                          title="Fiche technique complète"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={() => handleAddToCart(product.id)}
+                          className="px-4 py-2 bg-coco-green hover:bg-coco-green-hover text-white text-xs font-bold rounded-xl shadow-sm transition-all duration-150 active:scale-[0.97] cursor-pointer"
+                        >
+                          Commander
+                        </button>
+                      </div>
                     </div>
-
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedProductDetails(product)}
-                        className="p-2 text-gray-500 hover:text-coco-brown bg-coco-sand px-2.5 py-2.5 rounded-xl border border-coco-shell/30 transition-colors"
-                        title="Fiche technique complète"
-                      >
-                        <Eye className="w-4 h-4" />
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => handleAddToCart(product.id)}
-                        className="px-4 py-2 bg-coco-green hover:bg-coco-green-hover text-white text-xs font-bold rounded-xl shadow-sm transition-all duration-150 active:scale-[0.97]"
-                      >
-                        Commander
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+                  </motion.article>
+                ))}
+              </AnimatePresence>
+            </motion.div>
 
           </div>
         </section>
