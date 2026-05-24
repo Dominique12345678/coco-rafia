@@ -13,6 +13,7 @@ import Mission from './components/Mission';
 import EspaceCollecte from './components/EspaceCollecte';
 import { PRODUCTS, Product } from './data/products';
 import Cart from './components/Cart';
+import cocorafiaLogo from './assets/images/WhatsApp Image 2026-05-22 at 9.03.12 AM.jpeg';
 
 interface CartItem {
   productId: string;
@@ -377,8 +378,10 @@ export default function App() {
             
             {/* Brand column */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Leaf className="w-5 h-5 text-coco-mint" />
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white rounded-lg overflow-hidden flex items-center justify-center border border-white/10 p-0.5 shadow-sm">
+                  <img src={cocorafiaLogo} alt="Logo Coco-Rafia" className="w-full h-full object-contain" />
+                </div>
                 <h3 className="font-serif font-light text-xl tracking-tight text-white">
                   Coco<span className="text-coco-mint font-normal italic">Rafia</span>
                 </h3>

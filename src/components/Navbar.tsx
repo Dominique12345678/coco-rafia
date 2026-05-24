@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShoppingBag, HelpCircle, Recycle, Store, Phone, Menu, X, Landmark } from 'lucide-react';
-import cocorafiaLogo from '../assets/images/cocorafia_logo_1779300257664.png';
+import cocorafiaLogo from '../assets/images/WhatsApp Image 2026-05-22 at 9.03.12 AM.jpeg';
 
 interface NavbarProps {
   cartCount: number;
@@ -36,13 +36,13 @@ export default function Navbar({ cartCount, onOpenCart, activeTab, setActiveTab 
           
           {/* Logo Brand area */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNavClick('impact')}>
-            <div className="w-12 h-12 flex-shrink-0 bg-coco-green-light rounded-xl overflow-hidden flex items-center justify-center border border-coco-green/10">
+            <div className="w-12 h-12 flex-shrink-0 bg-white rounded-xl overflow-hidden flex items-center justify-center border border-coco-shell/45 shadow-sm p-1">
               {/* Real generated brand logo icon instead of SVG */}
               <img 
                 src={cocorafiaLogo} 
                 alt="Logo Coco-Rafia" 
                 referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
             <div className="flex flex-col text-left">
